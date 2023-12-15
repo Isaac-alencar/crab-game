@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #0d1b2a;
+}
+
+#game-board {
+  background-color: #13283f;
+  border-radius: 8px;
+  border: 3px solid #1c3c5f;
+}
