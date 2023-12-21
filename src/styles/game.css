@@ -1,11 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&family=Space+Mono&family=VT323&display=swap");
+
+.app-header {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d1b2a;
+}
+
+.app-header h1 {
+  color: #efefef;
+  font-family: "DotGothic16", sans-serif;
+}
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 80vh;
   background-color: #0d1b2a;
 }
 
