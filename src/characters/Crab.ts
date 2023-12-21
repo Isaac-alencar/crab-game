@@ -34,18 +34,6 @@ export class Crab {
   }
 
   setPosX(pos: number): void {
-    if (!this.playableArea) return;
-
-    if (pos < 0) {
-      this.posX = 0;
-      return;
-    }
-
-    if (pos > this.playableArea.width - this?.width) {
-      this.posX = this.playableArea.width - this?.width;
-      return;
-    }
-
     this.posX = pos;
   }
 
@@ -54,18 +42,6 @@ export class Crab {
   }
 
   setPosY(pos: number): void {
-    if (!this.playableArea) return;
-
-    if (pos < 0) {
-      this.posY = 0;
-      return;
-    }
-
-    if (pos > this.playableArea.height - this.height) {
-      this.posY = this.playableArea.height - this.height;
-      return;
-    }
-
     this.posY = pos;
   }
 
