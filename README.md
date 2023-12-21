@@ -48,11 +48,8 @@ To set up crab Game locally, follow these steps:
 
    npm install
    ```
-
-```
-
 Then visit http://localhost:3000 in your browser to play the game.
-```
+
 # Contributing
 
 If you'd like to contribute to Crabby Snake Game, follow these steps:
