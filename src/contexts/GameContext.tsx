@@ -5,6 +5,7 @@ import {
   useContext,
   useMemo,
   useRef,
+  useState,
 } from "react";
 import { Crab } from "../characters/Crab";
 import { Food } from "../characters/Food";
@@ -13,6 +14,7 @@ import { useKeyboardControl } from "../hooks/useKeyboardControl";
 
 type GameContextProps = {
   game: (context: CanvasRenderingContext2D) => void;
+  hitCounts: number;
 };
 
 export const GameContext = createContext<GameContextProps>(
@@ -20,6 +22,8 @@ export const GameContext = createContext<GameContextProps>(
 );
 
 export const GameProvider = ({ children }: PropsWithChildren) => {
+  const [hitCounts, setHitCounts] = useState<number>(0);
+
   let gameLevel = useRef(1);
   const crab = useRef(new Crab());
   const food = useRef(new Food());
@@ -47,6 +51,7 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
         crab.current.cy - food.current.cy <= 55 &&
         crab.current.cy - food.current.cy >= -35
       ) {
+        setHitCounts((prevValue) => prevValue + 1);
         gameLevel.current += gameLevel.current / 50;
         food.current = new Food();
       }
@@ -57,8 +62,9 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
   const value = useMemo(
     () => ({
       game,
+      hitCounts,
     }),
-    [game]
+    [game, hitCounts]
   );
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
 };

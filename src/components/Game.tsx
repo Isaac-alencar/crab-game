@@ -11,7 +11,7 @@ const GAME_SPEED = 1000 / 60;
 export function Game() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const { game } = useGame();
+  const { game, hitCounts } = useGame();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -25,13 +25,16 @@ export function Game() {
   }, [game]);
 
   return (
-    <div className="container">
-      <canvas
-        ref={canvasRef}
-        id="game-board"
-        width={CANVAS_WIDTH}
-        height={CANVAS_HEIGHT}
-      ></canvas>
-    </div>
+    <>
+      <div className="container">
+        <h1 className="score-counter">Score: {hitCounts}</h1>
+        <canvas
+          ref={canvasRef}
+          id="game-board"
+          width={CANVAS_WIDTH}
+          height={CANVAS_HEIGHT}
+        ></canvas>
+      </div>
+    </>
   );
 }
