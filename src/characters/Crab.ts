@@ -9,6 +9,8 @@ export class Crab {
   private posY: number = 200;
   private width: number = 90;
   private height: number = 60;
+  public cx: number = this.posX + this.width / 2;
+  public cy: number = this.posY + this.height / 2;
   private playableArea: PlayableArea | undefined;
 
   setContext(ctx: CanvasRenderingContext2D): void {
@@ -27,7 +29,7 @@ export class Crab {
     return this.height;
   }
 
-  getPosX(): number {
+  get getPosX(): number {
     return this.posX;
   }
 
@@ -47,7 +49,7 @@ export class Crab {
     this.posX = pos;
   }
 
-  getPosY(): number {
+  get getPosY(): number {
     return this.posY;
   }
 
@@ -67,11 +69,9 @@ export class Crab {
     this.posY = pos;
   }
 
-  public move(x: number, y: number) {
-    // if (this.detectCollision()) return null;
-
-    this.setPosX(this.posX + this.width * x);
-    this.setPosY(this.posY + this.height * y);
+  public move(x: number, y: number, gameLevel: number) {
+    this.setPosX(this.posX + 2 * gameLevel * x);
+    this.setPosY(this.posY + 2 * gameLevel * y);
   }
 
   public draw() {
@@ -79,6 +79,8 @@ export class Crab {
 
     let crabX = this.posX + this.width - 60;
     let crabY = this.posY + this.height - 20;
+    this.cx = crabX;
+    this.cy = crabY;
 
     // "Belly"
     this.context.beginPath();
@@ -152,5 +154,11 @@ export class Crab {
     this.context.fillStyle = "#f26419";
     this.context.fill();
     this.context.closePath();
+
+    // this.context.beginPath();
+    // this.context.rect(this.cx + 15, this.cy - 5, -45, 3);
+    // // this.context.fillStyle = "red";
+    // this.context.fill();
+    // this.context.closePath();
   }
 }
