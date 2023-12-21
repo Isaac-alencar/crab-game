@@ -30,20 +30,50 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
 
   const { directionX, directionY } = useKeyboardControl();
 
+  const detectCollision = (posX: number, posY: number) => {
+    if (posX <= 0) {
+      crab.current.setPosX(0);
+      setHitCounts(0);
+      gameLevel.current = 1;
+      return;
+    }
+
+    if (posX > CANVAS_WIDTH - crab.current.getWidth()) {
+      crab.current.setPosX(CANVAS_WIDTH - crab.current.getWidth());
+      setHitCounts(0);
+      gameLevel.current = 1;
+      return;
+    }
+
+    if (posY < 0) {
+      crab.current.setPosY(0);
+      setHitCounts(0);
+      gameLevel.current = 1;
+      return;
+    }
+
+    if (posY > CANVAS_HEIGHT - crab.current.getHeight()) {
+      crab.current.setPosY(CANVAS_HEIGHT - crab.current.getHeight());
+      setHitCounts(0);
+      gameLevel.current = 1;
+      return;
+    }
+
+    crab.current.setPosY(posY);
+    crab.current.setPosX(posX);
+  };
+
   const game = useCallback(
     (context: CanvasRenderingContext2D) => {
       context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       crab.current.setContext(context);
       food.current.setContext(context);
 
-      crab.current.setPlayableArea({
-        width: CANVAS_WIDTH,
-        height: CANVAS_HEIGHT,
-      });
       crab.current.draw();
       food.current.draw();
 
       crab.current.move(directionX, directionY, gameLevel.current);
+      detectCollision(crab.current.getPosX, crab.current.getPosY);
 
       if (
         crab.current.cx - food.current.cx <= 46 &&
