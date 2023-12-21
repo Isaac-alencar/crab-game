@@ -1,7 +1,12 @@
 import { Game } from "./components/Game";
+import { GameProvider } from "./contexts/GameContext";
 
 function App() {
-  return <Game />;
+  return (
+    <GameProvider>
+      <Game />
+    </GameProvider>
+  );
 }
 
 export default App;
