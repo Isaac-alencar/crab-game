@@ -30,9 +30,9 @@ Welcome to crab Game, a fun and interactive React-based game where you control a
 ## Features
 
 - 🦀 Control a cute crab to navigate the game board.
-- 🍎 Eat fruits to grow longer and score points.
-- 🚫 Avoid collisions with the crab's own body and game boundaries.
-- 🎮 Responsive and user-friendly interface.
+- 🍎 Eat fruits to score points.
+- 🚫 Avoid collisions with the game boundaries.
+- 🎮 User-friendly interface.
 
 ## Installation
 
