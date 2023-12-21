@@ -26,6 +26,7 @@ Welcome to crab Game, a fun and interactive React-based game where you control a
 ![crab Demo](./.github/game.png)
 
 ![crab Demo](./.github/demo.webm)
+![crab Demo](./.github/demo.gif)
 
 ## Features
 
