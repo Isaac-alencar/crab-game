@@ -22,11 +22,10 @@ Welcome to crab Game, a fun and interactive React-based game where you control a
 - [License](#license)
 
 ## Demo
-
-![crab Demo](./.github/game.png)
-
-![crab Demo](./.github/demo.webm)
-![crab Demo](./.github/demo.gif)
+<div style="display:flex;justify-content:space-between;">
+    <img src="./.github/game.png" alt="demo" width="400" height="600"/>
+    <img src="./.github/demo.gif" alt="demo" width="400" height="600" />
+</div>
 
 ## Features
 
